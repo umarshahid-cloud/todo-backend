@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // routes
-app.use("/api/todos", todoRoutes);
+app.use("/todos", todoRoutes);
 
 // error handler (keep after routes)
 app.use(

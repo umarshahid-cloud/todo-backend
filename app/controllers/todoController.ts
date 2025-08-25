@@ -51,24 +51,6 @@ export async function updateTask(
   }
 }
 
-export async function toggleTaskComplete(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  try {
-    const { id } = req.params;
-    const task = await Task.findById(id);
-    if (!task) return res.status(404).json({ message: "Not found" });
-
-    task.isComplete = !task.isComplete;
-    await task.save();
-    res.json(task);
-  } catch (err) {
-    next(err);
-  }
-}
-
 export async function removeTask(
   req: Request,
   res: Response,
